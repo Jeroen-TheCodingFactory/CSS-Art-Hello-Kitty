@@ -1,0 +1,247 @@
+*,*::before,*::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  --eye-distance: 7.8rem;
+}
+html{
+  font-size: 62.5%;
+}
+body{
+  background-color: #EA8CB7;
+  display:flex;
+  height:100vh;
+  max-height: 100vh;
+  max-width: 100vw;
+  align-items: center;
+  justify-content: center;
+}
+
+.kitty{
+  position: relative;
+  transform: scale(0.6);
+}
+
+.kitty__head{
+  width: 45rem;
+  height:36rem;
+  background-color: white;
+  border-radius: 50%;
+  border:1.5rem solid black;
+  position: relative;
+}
+
+.kitty__head__eye{
+  position: absolute;
+  width:3rem;
+  height:4rem;
+  border-radius: 50%;
+  background-color: black;
+  bottom:12rem;
+}
+
+.kitty__head__eye--left{
+  left:var(--eye-distance);
+}
+
+.kitty__head__eye--right{
+  right:var(--eye-distance);
+}
+
+.kitty__head__nose{
+  width:4rem;
+  height:3rem;
+  background-color: yellow;
+  border-radius: 50%;
+  position: absolute;
+  left:50%;
+  transform: translateX(-50%);
+  bottom:7.5rem;
+  border:0.8rem solid black;
+}
+
+.kitty__ear{
+  width: 17rem;
+  height:30rem;
+  background-color: white;
+  position: absolute;
+  border-radius: 50%;
+  border-top-right-radius: 105%;
+  border: 1.5rem solid black;
+  z-index: 1;
+  top:-3.5rem;
+}
+
+.kitty__ear--left{
+  left: 2.9rem;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 36%, 0% 40%);
+  transform:rotate(-20deg);
+  animation: kitty__ear__animation--left 0.8s infinite alternate;
+}
+
+.kitty__ear--right{
+  right: 2.9rem;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 36%, 0% 40%);
+  transform: rotateY(180deg) rotate(-20deg);
+  animation: kitty__ear__animation--right 0.8s infinite alternate;
+}
+
+.u-bowtie-container{
+  transform:rotate(35deg) scale(1.1);
+  position: absolute;
+  top:4rem;
+  right:-4rem;
+  z-index: 2;
+}
+
+.kitty__bowtie{
+  height:6rem;
+  width:6rem;
+  position: absolute;
+  background-color: #E60E63;
+  border-radius: 50%;
+  border: 1rem solid black;
+  top:5rem;
+  right:7.25rem;
+  z-index: 3;
+}
+
+.kitty__bowtie-side{
+  position: absolute;
+  height: 10rem;
+  width:8rem;
+  background-color: #E60E63;
+  border-radius: 50%;
+  border: 1rem solid black;
+  z-index: 2;
+}
+
+.kitty__bowtie-side--left{
+  top:3rem;
+  right:11rem;
+  border-bottom-left-radius: 45%;
+  border-top-left-radius: 45%;
+}
+
+.kitty__bowtie-side--left::after{
+  content:"";
+  height: 4rem;
+  width:4rem;
+  top:2.2rem;
+  left:2.7rem;
+  background-color: #E60E63;
+  position: absolute;
+  border-radius: 50%;
+  border: 1rem solid black;
+}
+
+.kitty__bowtie-side--right::after{
+  content:"";
+  height: 4rem;
+  width:4rem;
+  top:2.2rem;
+  right:2.7rem;
+  background-color: #E60E63;
+  position: absolute;
+  border-radius: 50%;
+  border: 1rem solid black;
+}
+
+.kitty__bowtie-side--right{
+  top:3rem;
+  right:1.5rem;
+  border-bottom-left-radius: 45%;
+  border-top-left-radius: 45%;
+}
+
+/* Class beneath is for erasing some black borders */
+.kitty__forehead{
+  width: 50rem;
+  height:25rem;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  transform: scale(0.5) translateX(-50%);
+  top:-5rem;
+  z-index: 1;
+  left:10rem;
+}
+
+.kitty__whisker{
+  height: 3rem;
+  width:10rem;
+  border-radius: 50%;
+  border: 1rem solid transparent;
+  border-top: 1rem solid black;
+  position: absolute;
+}
+
+
+.kitty__whisker--first{
+  top:18rem;
+  left:-5rem;
+}
+.kitty__whisker--second{
+  top:23rem;
+  left:-4rem;
+  transform: rotate(-15deg);
+}
+
+.kitty__whisker--third{
+  top:28rem;
+  left:-1rem;
+  transform: rotate(-32deg);
+}
+
+.kitty__whisker--first--right--side{
+  top:18rem;
+  right:-5rem;
+}
+
+.kitty__whisker--second--right--side{
+  top:23rem;
+  right:-4rem;
+  transform: rotate(15deg);
+}
+
+.kitty__whisker--third--right--side{
+  top:28rem;
+  right:-1rem;
+  transform: rotate(32deg);
+}
+
+@keyframes kitty__ear__animation--left {
+  from{
+      transform:rotate(-20deg);
+  }
+  to{
+    transform:rotate(-15deg);
+  }
+}
+
+@keyframes kitty__ear__animation--right{
+  from{
+    transform: rotateY(180deg) rotate(-20deg);
+  }
+  to{
+    transform: rotateY(180deg) rotate(-15deg);
+
+  }
+}
+
+/* media query for small devices */
+@media (min-width: 62.5rem) {
+  .kitty{
+    transform: scale(1);
+  }
+}
+
+/* media query for 4k screens, 2560px*/
+@media (min-width: 160rem) {
+  .kitty{
+    transform: scale(2.3);
+  }
+}
